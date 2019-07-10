@@ -5,7 +5,7 @@ import axios from 'axios';
 import scrollToComponent from 'react-scroll-to-component'
 
 class App extends React.Component {
-  
+
   constructor(props){
     super(props);
     this.state = {
@@ -27,7 +27,8 @@ class App extends React.Component {
   }
 
   async deleteTask(id, i) {
-    await axios.delete(this.state.api + id).then(console.log('deleted id = ' + id))
+    await axios.delete(this.state.api + id)
+      .then(console.log('deleted id = ' + id))
     let tasks = this.state.tasks
     tasks.splice (i, 1)
     this.setState({ tasks })
