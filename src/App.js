@@ -2,8 +2,10 @@ import React from 'react';
 import './App.css';
 import Note from './components/Note';
 import axios from 'axios';
+import scrollToComponent from 'react-scroll-to-component'
 
 class App extends React.Component {
+  
   constructor(props){
     super(props);
     this.state = {
@@ -39,6 +41,7 @@ class App extends React.Component {
     await this.getTasks()
     this.setState({ handleTask: '' })
     this.textInput.focus()
+    scrollToComponent(this.lastPost)
   }
 
   handleKeyPress = (e) => {
@@ -49,11 +52,24 @@ class App extends React.Component {
 
   render() {
     let tasks = this.state.tasks.map((task, i) => {
-      return <Note key={i} text={task.task} delete={ () => this.deleteTask(task.id, i)}/>
+      const arr = this.state.tasks
+      if (i === (arr.length-1)){
+        return <Note 
+                  ref={((lastPost => this.lastPost = lastPost))} 
+                  key={i} 
+                  text={task.task} 
+                  delete={ () => this.deleteTask(task.id, i)}
+                  />
+      }else{
+        return <Note 
+                  key={i} 
+                  text={task.task} 
+                  delete={ () => this.deleteTask(task.id, i)}/>
+      }
     })
     return (
       <div className="con">
-      <div className="header">TODO CRUD TESTING</div>
+      <div className="header">IMPROVING COMMENTS BOX</div>
       <div className="mb-5 pb-5">
       {tasks}
       </div>
