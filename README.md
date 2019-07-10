@@ -1,5 +1,10 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+IMPORTANT!!!!!
+//this project was powered with libraries just install with npm the follow:
+//yarn add OR npm install'express mysql body-parser cors axios'
+//yarn add or npm install 'nodemon -D'
+
 ## Available Scripts
 
 In the project directory, you can run:
