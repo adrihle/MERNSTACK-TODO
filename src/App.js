@@ -36,8 +36,8 @@ class App extends React.Component {
 
   async postTask() {
     await axios.post(this.state.api, {
-      task: this.state.handleTask,
-      status: 1
+      title: this.state.handleTask,
+      description: 'Pushed correctly'
     }).then(console.log(this.state.handleTask + ' insertada en db campeon sigue asi te queremos!'))
     await this.getTasks()
     this.setState({ handleTask: '' })
@@ -58,19 +58,19 @@ class App extends React.Component {
         return <Note 
                   ref={((lastPost => this.lastPost = lastPost))} 
                   key={i} 
-                  text={task.task} 
+                  text={task.title} 
                   delete={ () => this.deleteTask(task.id, i)}
                   />
       }else{
         return <Note 
                   key={i} 
-                  text={task.task} 
+                  text={task.title} 
                   delete={ () => this.deleteTask(task.id, i)}/>
       }
     })
     return (
       <div className="con">
-      <div className="header">IMPROVING COMMENTS BOX</div>
+      <div className="header">COMMENTS BOX</div>
       <div className="mb-5 pb-5">
       {tasks}
       </div>

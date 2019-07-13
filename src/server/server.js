@@ -21,7 +21,7 @@ const pool = mysql.createPool({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'mydb'
+    database: 'pruebas'
 })
 
 const queryGet = 'SELECT * FROM tasks'
@@ -49,23 +49,23 @@ app.delete('/:id', async (req, res) => {
 })
 
 app.post('/', async (req, res) => {
-    const { task, status } = req.body
-    const newTask = {
-        task,
-        status
+    const { title, description } = req.body
+    const newtitle = {
+        title,
+        description
     }
-    await pool.query(queryInsert, [newTask], () => {
+    await pool.query(queryInsert, [newtitle], () => {
         res.send('inserted!')
     })
 })
 
 app.put('/:id', async (req, res) => {
-    const { task, status } = req.body
-    const updateTask = {
-        task,
-        status
+    const { title, description } = req.body
+    const updatetitle = {
+        title,
+        description
     }
-    await pool.query(queryUpdate, [updateTask, req.params.id], () => {
+    await pool.query(queryUpdate, [updatetitle, req.params.id], () => {
         res.send('updated!')
     })
 })
