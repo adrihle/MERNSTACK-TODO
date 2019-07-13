@@ -3,6 +3,10 @@ import './App.css';
 import axios from 'axios';
 import scrollToComponent from 'react-scroll-to-component'
 import Card from './components/Card';
+import NavBar from './components/NavBar'
+import PostPreview from './components/PostPreview'
+import TestingView from './components/TestingView'
+import BottomNav from './components/BottomNav'
 
 class App extends React.Component {
 
@@ -55,7 +59,7 @@ class App extends React.Component {
     let tasks = this.state.tasks.map((task, i) => {
       const arr = this.state.tasks
       if (i === (arr.length-1)){
-        return <Card 
+        return <PostPreview 
                   ref={((lastPost => this.lastPost = lastPost))} 
                   key={i} 
                   title={task.title}
@@ -65,7 +69,7 @@ class App extends React.Component {
                   delete={ () => this.deleteTask(task.id, i)}
                   />
       }else{
-        return <Card 
+        return <PostPreview
                   key={i} 
                   title={task.title}
                   date={task.created_at}
@@ -76,32 +80,11 @@ class App extends React.Component {
     })
     return (
       <div className="con">
-      <div className="header">COMMENTS BOX</div>
+        <NavBar />
       <div className="mb-5 pb-5">
       {tasks}
       </div>
-      <div 
-          className="btnPost"
-          //CUIDADO!!!!!!!!!! si defines el metodo sin el bind, se queda en bucle añadiendo filas vacias
-          //MUCH CARE!!!!!! if u insert the function postTask without bind method
-          //the app go to bucle and add empty rows to db, for me more than 1k in 6 seconds :O
-          onClick={this.postTask.bind(this)}
-          ref={((add) => this.add = add)}
-          >
-            +
-      </div>
-      <input
-        type="text"
-        className="textInput"
-        ref={((input) => {this.textInput = input})}
-        onChange={task => {
-          this.setState({
-            handleTask: task.target.value
-          })
-        }}
-        value={this.state.handleTask}
-        onKeyPress={this.handleKeyPress.bind(this)}
-      />  
+      <BottomNav /> 
     </div>
     );
   }
