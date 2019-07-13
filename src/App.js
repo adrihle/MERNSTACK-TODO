@@ -2,10 +2,8 @@ import React from 'react';
 import './App.css';
 import axios from 'axios';
 import scrollToComponent from 'react-scroll-to-component'
-import Card from './components/Card';
 import NavBar from './components/NavBar'
 import PostPreview from './components/PostPreview'
-import TestingView from './components/TestingView'
 import BottomNav from './components/BottomNav'
 
 class App extends React.Component {
@@ -60,7 +58,6 @@ class App extends React.Component {
       const arr = this.state.tasks
       if (i === (arr.length-1)){
         return <PostPreview 
-                  ref={((lastPost => this.lastPost = lastPost))} 
                   key={i} 
                   title={task.title}
                   date={task.created_at}
