@@ -30,25 +30,25 @@ const queryInsert = 'INSERT INTO tasks set ?'
 const queryDelete = 'DELETE FROM tasks WHERE id = ?'
 const queryUpdate = 'UPDATE tasks set ? WHERE id = ?'
 
-app.get('/', async (req, res) => {
+app.get('/posts', async (req, res) => {
     await pool.query(queryGet, (err, rows) => {
         res.send(rows)
     })
 })
 
-app.get('/:id', async (req, res) => {
+app.get('/posts/:id', async (req, res) => {
     await pool.query(queryGetSpecific, [req.params.id], (err, rows) => {
         res.send(rows)
     })
 })
 
-app.delete('/:id', async (req, res) => {
+app.delete('/posts/:id', async (req, res) => {
     await pool.query(queryDelete, [req.params.id], () => {
         res.send('deleted!')
     })
 })
 
-app.post('/', async (req, res) => {
+app.post('/posts', async (req, res) => {
     const { title, description } = req.body
     const newtitle = {
         title,
@@ -59,7 +59,7 @@ app.post('/', async (req, res) => {
     })
 })
 
-app.put('/:id', async (req, res) => {
+app.put('/posts/:id', async (req, res) => {
     const { title, description } = req.body
     const updatetitle = {
         title,

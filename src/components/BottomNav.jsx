@@ -9,6 +9,7 @@ import LocationOnIcon from '@material-ui/icons/LocationOn';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 import { lightBlue } from '@material-ui/core/colors';
+import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles({
   root: {
@@ -16,11 +17,14 @@ const useStyles = makeStyles({
     position: 'fixed',
     bottom: 0,
     backgroundColor: '#343a40',
-    selected: 'secondary'
+    textDecoration: 'none',
+    boxShadow: '0px -7px 4px 0px rgba(0,0,0,0.3)',
+    MozBoxShadow: '0px -7px 4px 0px rgba(0,0,0,0.3)',
+    WebkitBoxShadow: '0px -7px 4px 0px rgba(0,0,0,0.3)'
   },
   selected:{
     color: 'white'
-  }
+  },
 });
 
 const theme = createMuiTheme({
@@ -31,7 +35,7 @@ const theme = createMuiTheme({
 
 export default function LabelBottomNavigation() {
   const classes = useStyles();
-  const [value, setValue] = React.useState('recents');
+  const [value, setValue] = React.useState('home');
 
   function handleChange(event, newValue) {
     setValue(newValue);
@@ -40,10 +44,43 @@ export default function LabelBottomNavigation() {
   return (
     <ThemeProvider theme={theme}>
     <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
-      <BottomNavigationAction className={classes.selected} label="Recents" value="recents" icon={<RestoreIcon />} />
-      <BottomNavigationAction className={classes.selected} label="Favorites" value="favorites" icon={<FavoriteIcon />} />
-      <BottomNavigationAction className={classes.selected} label="Nearby" value="nearby" icon={<LocationOnIcon />} />
-      <BottomNavigationAction className={classes.selected} label="Folder" value="folder" icon={<Icon>folder</Icon>} />
+      <BottomNavigationAction
+        to='/'
+        //Con esta mierda ya no sale el underline producido por el link
+        style={{ textDecoration: 'none' }}
+        component={Link} 
+        className={classes.selected} 
+        label="Home" 
+        value="home" 
+        icon={<RestoreIcon />} 
+      />
+      <BottomNavigationAction 
+        to='/wars'
+        style={{ textDecoration: 'none' }}
+        component={Link}
+        className={classes.selected} 
+        label="Tournament" 
+        value="tournament" 
+        icon={<FavoriteIcon />}
+      />
+      <BottomNavigationAction 
+        to='/shop'
+        style={{ textDecoration: 'none' }}
+        component={Link}
+        className={classes.selected} 
+        label="Shop" 
+        value="shop" 
+        icon={<LocationOnIcon />} 
+      />
+      <BottomNavigationAction 
+        to='/library'
+        style={{ textDecoration: 'none' }}
+        component={Link}
+        className={classes.selected} 
+        label="Library" 
+        value="library" 
+        icon={<Icon>folder</Icon>} 
+      />
     </BottomNavigation>
     </ThemeProvider>
   );
