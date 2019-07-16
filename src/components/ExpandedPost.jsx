@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
 import CardMedia from '@material-ui/core/CardMedia'
@@ -28,10 +28,12 @@ const useStyles = makeStyles(theme => ({
 }));
 
 //props que recibe el enrutador para conocer el postid que dirige
-export default function PostReview({ match }) {
+export default function PostReview(props) {
 
     const classes = useStyles();
 
+    
+    
     return (
       
       <div>

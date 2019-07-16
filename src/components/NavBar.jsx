@@ -22,7 +22,10 @@ const useStyles = makeStyles(theme => ({
         display: 'flex',
         [theme.breakpoints.up('sm')]: {
           display: 'block',
-        },}
+        },},
+    backbutton: {
+      display: 'none'
+    }    
   }));
 
 function HideOnScroll(props) {
@@ -106,8 +109,9 @@ export default function NavBar(props) {
       <AppBar position="static" className='bg-dark'>
           
         <Toolbar>
-        
+        <div className='btn btn-outline-primary' onClick={props.Handle}>go back</div>
           <div className={classes.grow} />
+          
           <Wallet />
           <div >
           

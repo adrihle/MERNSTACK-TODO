@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
 export default function PostReview(props) {
 
     const classes = useStyles();
-    const ruta = '/' + props.postId
+    const ruta = '/post/' + props.postId
 
     return (
       
@@ -36,6 +36,7 @@ export default function PostReview(props) {
         <Card className='bg-dark mt-4'>
           <CardMedia
               to={ruta}
+              onClick={props.parentMethod}
               component={Link}
               className={classes.media}
               image="https://i.pinimg.com/originals/d7/e1/72/d7e1725b3801fb6cdeb212884c893f79.jpg"

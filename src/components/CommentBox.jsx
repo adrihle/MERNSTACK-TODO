@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
         width: '100%',
         position: 'fixed',
         display: 'flex',
-        bottom: '55px',
+        bottom: '0',
         backgroundColor: '#343a40',
         justifyContent: 'between'
     }

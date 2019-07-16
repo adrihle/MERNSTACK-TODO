@@ -1,6 +1,7 @@
 //Dependencies
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { Router, Route, Switch } from 'react-router-dom'
+import { createBrowserHistory } from 'history'
 import './App.css';
 //Navigation components
 import NavBar from './components/NavBar'
@@ -12,21 +13,48 @@ import Shop from './views/Shop'
 import Library from './views/Library'
 import ExpandedPost from './components/ExpandedPost'
 
+const history = createBrowserHistory()
+
+
 class App extends React.Component {
 
+  constructor(props){
+    super(props);
+    this.state = {
+      showBottomNav: true
+    }
+  }
+  
+  hideBottomNav= () => {
+    this.setState({
+      showBottomNav: false
+    })
+  }
+
+  showBottomNav = () => {
+    this.setState({
+      showBottomNav: true
+    })
+    history.goBack()
+  }
+
   render() {
-    
+
     return (
-      <Router>
-        <NavBar />
+      <Router history={history}>
+        <NavBar Handle={() => this.showBottomNav()}/>
         <Switch>
-          <Route path='/' exact component={Home} />
+          <Route path='/' exact render={ props => <Home {...props} parentMethod={() => this.hideBottomNav()} /> } />
           <Route path='/wars' exact component={Tournament} />
           <Route path='/shop' exact component={Shop} />
           <Route path='/library' exact component={Library} />
-          <Route path='/:id' exact component={ExpandedPost} />
+          <Route 
+            path='/post/:id' 
+            exact 
+            component={ExpandedPost} 
+            />
         </Switch>
-        <BottomNav />
+        {this.state.showBottomNav ? <BottomNav /> : <div/>}
       </Router>
     );
   }

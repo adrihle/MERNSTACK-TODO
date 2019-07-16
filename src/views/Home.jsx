@@ -23,6 +23,7 @@ class Home extends React.Component {
       let posts = this.state.posts.map((post, i) => {
           return <PostPreview 
                     key={i}
+                    parentMethod={this.props.parentMethod}
                     postId={post.id}
                     date={post.created_at} 
                     title={post.title}
