@@ -4,9 +4,9 @@ import { makeStyles } from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
 import CardMedia from '@material-ui/core/CardMedia'
 import ShareLike from './singles/ShareLike'
-import CardHeader from '@material-ui/core/CardHeader';
-import Avatar from '@material-ui/core/Avatar';
-import { red } from '@material-ui/core/colors';
+import CardHeader from '@material-ui/core/CardHeader'
+import Avatar from '@material-ui/core/Avatar'
+import { red } from '@material-ui/core/colors'
 
 const useStyles = makeStyles(theme => ({
   
@@ -32,30 +32,31 @@ export default function PostReview(props) {
 
     return (
       
-      <Card className='bg-dark mt-4'>
-        <CardMedia
-            to={ruta}
-            component={Link}
-            className={classes.media}
-            image="https://i.pinimg.com/originals/d7/e1/72/d7e1725b3801fb6cdeb212884c893f79.jpg"
-            title="PostPreview"
-          />
-          <ShareLike />
-          <CardHeader
-            classes={{
-                title: classes.title,
-                subheader: classes.subheader
-            }}
-            avatar={
-            <Avatar aria-label="Section" className={classes.avatar}>
-                R
-            </Avatar>
-            }
-            title="Amazing kills by adrihfly!"
-            subheader="September 14, 2019"
+      
+        <Card className='bg-dark mt-4'>
+          <CardMedia
+              to={ruta}
+              component={Link}
+              className={classes.media}
+              image="https://i.pinimg.com/originals/d7/e1/72/d7e1725b3801fb6cdeb212884c893f79.jpg"
+              title="PostPreview"
             />
-        
-      </Card>
+            <ShareLike />
+            <CardHeader
+              classes={{
+                  title: classes.title,
+                  subheader: classes.subheader
+              }}
+              avatar={
+              <Avatar aria-label="Section" className={classes.avatar}>
+                  R
+              </Avatar>
+              }
+              title="Amazing kills by adrihfly!"
+              subheader="September 14, 2019"
+              />
+        </Card>
+      
     );
   
 }

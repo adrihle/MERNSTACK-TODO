@@ -5,9 +5,10 @@ import CardMedia from '@material-ui/core/CardMedia'
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
 import ShareLike from './singles/ShareLike'
-import CardHeader from '@material-ui/core/CardHeader';
-import Avatar from '@material-ui/core/Avatar';
-import { red } from '@material-ui/core/colors';
+import CardHeader from '@material-ui/core/CardHeader'
+import Avatar from '@material-ui/core/Avatar'
+import { red } from '@material-ui/core/colors'
+import CommentBox from './CommentBox'
 
 const useStyles = makeStyles(theme => ({
   
@@ -26,13 +27,15 @@ const useStyles = makeStyles(theme => ({
   
 }));
 
-export default function PostReview(props) {
+//props que recibe el enrutador para conocer el postid que dirige
+export default function PostReview({ match }) {
 
     const classes = useStyles();
 
     return (
       
-      <Card className='bg-dark mt-4'>
+      <div>
+        <Card className='bg-dark mt-4'>
         <CardMedia
             className={classes.media}
             image="https://i.pinimg.com/originals/d7/e1/72/d7e1725b3801fb6cdeb212884c893f79.jpg"
@@ -56,11 +59,12 @@ export default function PostReview(props) {
             <Typography gutterBottom>
             </Typography>
             <Typography variant="body2" component="p">
-              {props.description}
             </Typography>
           </CardContent>
-        
       </Card>
+      <CommentBox />
+      </div>
+      
     );
   
 }
