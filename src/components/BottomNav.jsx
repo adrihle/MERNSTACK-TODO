@@ -42,10 +42,10 @@ export default function LabelBottomNavigation() {
   }
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme} >
     <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
       <BottomNavigationAction
-        to='/'
+        to='/firstlvl/Home'
         //Con esta mierda ya no sale el underline producido por el link
         style={{ textDecoration: 'none' }}
         component={Link} 
@@ -55,7 +55,7 @@ export default function LabelBottomNavigation() {
         icon={<RestoreIcon />} 
       />
       <BottomNavigationAction 
-        to='/wars'
+        to='/firstlvl/Tournaments'
         style={{ textDecoration: 'none' }}
         component={Link}
         className={classes.selected} 
@@ -64,7 +64,7 @@ export default function LabelBottomNavigation() {
         icon={<FavoriteIcon />}
       />
       <BottomNavigationAction 
-        to='/shop'
+        to='/firstlvl/Shop'
         style={{ textDecoration: 'none' }}
         component={Link}
         className={classes.selected} 
@@ -73,7 +73,7 @@ export default function LabelBottomNavigation() {
         icon={<LocationOnIcon />} 
       />
       <BottomNavigationAction 
-        to='/library'
+        to='/firstlvl/Library'
         style={{ textDecoration: 'none' }}
         component={Link}
         className={classes.selected} 

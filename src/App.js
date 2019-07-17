@@ -7,11 +7,11 @@ import './App.css';
 import NavBar from './components/NavBar'
 import BottomNav from './components/BottomNav'
 //Generals views
-import Home from './views/Home'
-import Tournament from './views/Tournament'
-import Shop from './views/Shop'
-import Library from './views/Library'
-import ExpandedPost from './components/ExpandedPost'
+import Home from './views/main/Home'
+import Tournament from './views/main/Tournament'
+import Shop from './views/main/Shop'
+import Library from './views/main/Library'
+import ExpandedPost from './views/secondary/ExpandedPost'
 
 const history = createBrowserHistory()
 

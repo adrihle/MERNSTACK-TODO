@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
 import CardMedia from '@material-ui/core/CardMedia'
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
-import ShareLike from './singles/ShareLike'
+import ShareLike from '../../components/singles/ShareLike'
 import CardHeader from '@material-ui/core/CardHeader'
 import Avatar from '@material-ui/core/Avatar'
 import { red } from '@material-ui/core/colors'
-import CommentBox from './CommentBox'
+import CommentBox from '../../components/CommentBox'
 
 const useStyles = makeStyles(theme => ({
   

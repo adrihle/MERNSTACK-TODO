@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios';
-import PostPreview from '../components/PostPreview'
+import PostPreview from '../../components/PostPreview'
 
 
 class Home extends React.Component {

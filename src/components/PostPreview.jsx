@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
 export default function PostReview(props) {
 
     const classes = useStyles();
-    const ruta = '/post/' + props.postId
+    const ruta = '/secondlvl/post/' + props.postId
 
     return (
       

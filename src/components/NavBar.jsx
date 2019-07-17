@@ -13,6 +13,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import Wallet from './singles/Wallet';
+import GoBackButton from './singles/GoBackButton'
 
 const useStyles = makeStyles(theme => ({
     grow: {
@@ -29,8 +30,7 @@ const useStyles = makeStyles(theme => ({
   }));
 
 function HideOnScroll(props) {
-
-    
+  
   const { children } = props;
   const trigger = useScrollTrigger();
 
@@ -109,7 +109,7 @@ export default function NavBar(props) {
       <AppBar position="static" className='bg-dark'>
           
         <Toolbar>
-        <div className='btn btn-outline-primary' onClick={props.Handle}>go back</div>
+        <GoBackButton showLogo={props.showLogo} goBack={props.goBack} />
           <div className={classes.grow} />
           
           <Wallet />
