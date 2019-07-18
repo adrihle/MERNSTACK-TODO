@@ -6,15 +6,11 @@ import CardMedia from '@material-ui/core/CardMedia'
 import ShareLike from './singles/ShareLike'
 import CardHeader from '@material-ui/core/CardHeader'
 import Avatar from '@material-ui/core/Avatar'
-import { red } from '@material-ui/core/colors'
 
 const useStyles = makeStyles(theme => ({
   
   media: {
     paddingTop: '56.25%', // 16:9
-  },
-  avatar: {
-    backgroundColor: red[500],
   },
   title: {
       color: 'white'
@@ -49,12 +45,12 @@ export default function PostReview(props) {
                   subheader: classes.subheader
               }}
               avatar={
-              <Avatar aria-label="Section" className={classes.avatar}>
-                  R
+              <Avatar aria-label="Section">
+                  <img height='42' alt='avatar' src='https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg' />
               </Avatar>
               }
-              title="Amazing kills by adrihfly!"
-              subheader="September 14, 2019"
+              title={props.title}
+              subheader={props.date}
               />
         </Card>
       

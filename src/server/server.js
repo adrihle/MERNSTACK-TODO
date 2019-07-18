@@ -76,7 +76,7 @@ const GetPostComments = 'SELECT * FROM comments WHERE postid = ?'
 const PushPostComments = 'INSERT INTO comments set ?'
 
 app.get('/comments/:postid', async (req, res) => {
-    await pool.query(GetPostComments, [req.paramas.postid], (err, rows) => {
+    await pool.query(GetPostComments, [req.params.postid], (err, rows) => {
         res.send(rows)
     })
 })

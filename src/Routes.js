@@ -11,9 +11,10 @@ import Tournaments from './views/main/Tournament'
 import Shop from './views/main/Shop'
 import Library from './views/main/Library'
 //Second level views
-import ExpandedPost from './views/secondary/ExpandedPost'
+import PostView from './views/secondary/PostView';
 //Some Style
 import './App.css';
+
 
 const history = createBrowserHistory()
 
@@ -47,7 +48,7 @@ export default function Routes(){
                     <Route path='/firstlvl/Shop' component={Shop} />
                     <Route path='/firstlvl/Library' component={Library} />
 
-                    <Route path='/secondlvl/post/:id' component={ExpandedPost}/>
+                    <Route path='/secondlvl/post/:id' component={PostView}/>
                 </Switch>
                 {mainlevel ? <BottomNav /> : <div/>}
             </Router>

@@ -13,7 +13,7 @@ class Home extends React.Component {
     }
   
     async componentDidMount() {
-        await axios.get('http://localhost:4000/posts/')
+        await axios.get('http://localhost:4000/posts')
         .then((res) => {
           this.setState({ posts: res.data })
         })

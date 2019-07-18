@@ -9329,7 +9329,7 @@ schema-utils@^1.0.0:
     ajv-errors "^1.0.0"
     ajv-keywords "^3.1.0"
 
-scroll-to@0.0.2:
+scroll-to@0.0.2, scroll-to@^0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/scroll-to/-/scroll-to-0.0.2.tgz#936d398a9133660a2492145c2c0081dfcb0728f3"
   integrity sha1-k205ipEzZgokkhRcLACB38sHKPM=

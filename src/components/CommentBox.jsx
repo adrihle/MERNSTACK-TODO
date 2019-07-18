@@ -44,7 +44,7 @@ const theme = createMuiTheme({
 });
 
 
-export default function CommentBox(){
+export default function CommentBox(props){
     const classes = useStyles();
     
     return(
@@ -58,6 +58,9 @@ export default function CommentBox(){
                     InputProps={{
                         className: classes.input,
                     }}
+                    ref={props.ref}
+                    onChange={props.onChange}
+                    value={props.value}
                     label="Go Comment!"
                     placeholder="Comment"
                     multiline
@@ -65,7 +68,7 @@ export default function CommentBox(){
                     margin="normal"
                     variant="outlined"
                 />
-                <IconButton className={classes.selected}>
+                <IconButton className={classes.selected} onClick={props.onClick}>
                     <i className="far fa-paper-plane fa-flip-horizontal text-white"></i>
                 </IconButton>
             </ThemeProvider>

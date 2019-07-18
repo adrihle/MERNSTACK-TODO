@@ -6,7 +6,6 @@ class Note extends Component {
             <div>
                 <div 
                     className="note"
-                    onClick={this.props.delete}
                     >
                         {this.props.title}
                 </div>

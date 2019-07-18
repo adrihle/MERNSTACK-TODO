@@ -4,19 +4,15 @@ import Card from '@material-ui/core/Card'
 import CardMedia from '@material-ui/core/CardMedia'
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
-import ShareLike from '../../components/singles/ShareLike'
+import ShareLike from './singles/ShareLike'
 import CardHeader from '@material-ui/core/CardHeader'
 import Avatar from '@material-ui/core/Avatar'
-import { red } from '@material-ui/core/colors'
-import CommentBox from '../../components/CommentBox'
+
 
 const useStyles = makeStyles(theme => ({
   
   media: {
     paddingTop: '56.25%', // 16:9
-  },
-  avatar: {
-    backgroundColor: red[500],
   },
   title: {
       color: 'white'
@@ -28,12 +24,10 @@ const useStyles = makeStyles(theme => ({
 }));
 
 //props que recibe el enrutador para conocer el postid que dirige
-export default function PostReview(props) {
+export default function ExpandedPost(props) {
 
     const classes = useStyles();
 
-    
-    
     return (
       
       <div>
@@ -50,21 +44,21 @@ export default function PostReview(props) {
                 subheader: classes.subheader
             }}
             avatar={
-            <Avatar aria-label="Section" className={classes.avatar}>
-                R
+            <Avatar aria-label="Section">
+                <img height='42' alt='avatar' src='https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg' />
             </Avatar>
             }
-            title="Amazing kills by adrihfly!"
-            subheader="September 14, 2019"
+            title={props.title}
+            subheader={props.date}
             />
           <CardContent className='text-white pb-1'>
             <Typography gutterBottom>
+              {props.description}
             </Typography>
             <Typography variant="body2" component="p">
             </Typography>
           </CardContent>
       </Card>
-      <CommentBox />
       </div>
       
     );
